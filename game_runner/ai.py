@@ -1,6 +1,6 @@
 import neat
 from constants import MenuReturn
-from game import run_game
+from game_runner.game import run_game
 
 
 def ai_fitness_func(genomes, config):

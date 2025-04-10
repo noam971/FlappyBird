@@ -1,8 +1,8 @@
 import pygame
 import neat
-import bird as Bird
-import pipe as Pipe
-import ground as Base
+from game_logic import ground as Base
+from game_logic import bird as Bird
+from game_logic import pipe as Pipe
 from constants import WIN_WIDTH, WIN_HEIGHT, BG_IMG, STAT_FONT, small_font
 
 GEN = 0

@@ -1,10 +1,10 @@
 import os
 import pygame
 import neat
-from menu import menu_loop_small
-import game as Game
-from game import run_game
-from ai import run_ai
+from game_runner import game
+from game_runner.menu import menu_loop_small
+from game_runner.game import run_game
+from game_runner.ai import run_ai
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
     pygame.display.set_caption("Flappy Bird")
     while True:
         mode = menu_loop_small()
-        Game.GEN = 0
+        game.GEN = 0
         if mode == "quit":
             break
         if mode == "AI":
