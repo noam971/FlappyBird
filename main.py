@@ -1,24 +1,38 @@
 import os
-import game as Game
+import pygame
 import neat
+from menu import menu_loop_small
+import game as Game
+from game import run_game
+from ai import run_ai
 
 
-def run(config_path):
-    config = neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction, neat.DefaultSpeciesSet,
-                                neat.DefaultStagnation, config_path)
+def main():
+    pygame.init()
+    pygame.display.set_caption("Flappy Bird")
+    while True:
+        mode = menu_loop_small()
+        Game.GEN = 0
+        if mode == "quit":
+            break
+        if mode == "AI":
+            cfg = os.path.join(os.path.dirname(__file__), "config_feedforward.txt")
+            config = neat.config.Config(
+                neat.DefaultGenome,
+                neat.DefaultReproduction,
+                neat.DefaultSpeciesSet,
+                neat.DefaultStagnation,
+                cfg
+            )
+            result = run_ai(config)
+        elif mode == "Human":
+            result = run_game([], [], ai=False)
 
-    p = neat.Population(config)  # Population
-
-    p.add_reporter(neat.StdOutReporter(True))
-    stats = neat.StatisticsReporter()
-    p.add_reporter(stats)
-
-    winner = p.run(Game.run_game, 50)
-    return winner
+        if result == "quit":
+            break
+        if result == "menu":
+            continue
 
 
 if __name__ == "__main__":
-    local_dir = os.path.dirname(__file__)
-    config_path = os.path.join(local_dir, "config_feedforward.txt")
-    run(config_path)
-    # Game.main([], [], False)
+    main()
