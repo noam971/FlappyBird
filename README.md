@@ -12,16 +12,24 @@ This project is a clone of the popular Flappy Bird game, featuring two modes of 
 
 
     my_flappy_project/
-    ├── ai.py           # AI-specific game mode logic
-    ├── bird.py         # Bird class and behavior
-    ├── constants.py    # Common constants (dimensions, fonts, global variables)
-    ├── game.py         # Core game logic (game loop, drawing, event handling)
-    ├── ground.py       # Ground/base class logic
-    ├── main.py         # Entry point for the project
-    ├── menu.py         # Main menu logic for selecting game mode
-    ├── pipe.py         # Pipe class and behavior
-    └── imgs/
-        └── bg.png      # Background image
+    ├── constants.py               # Global constants, fonts, etc.
+    ├── config_feedforward.txt     # NEAT configuration file
+    ├── game_logic/                # Holds classes and core gameplay logic
+    │   ├── bird.py                   # Bird class and behavior
+    │   ├── pipe.py                   # Pipe class and behavior
+    │   └── ground.py                 # Ground/base class logic
+    ├── game_runner/               # Holds running/game loop code (glue)
+    │   ├── ai.py                     # AI-specific game-run logic
+    │   ├── game.py                   # The game loop, drawing, event handling
+    │   └── menu.py                   # The main menu logic
+    ├── imgs/                     # Images used in the game
+    │   ├── base.png                  # Ground image
+    │   ├── bg.png                    # Background image
+    │   ├── bird1.png                 # Bird sprite frame
+    │   ├── bird1.png                 # Bird sprite frame
+    │   ├── bird1.png                 # Bird sprite frame
+    │   └── pipe.png                  # Pipe obstacle
+    └── main.py                   # Entry point for the project
 
 
 ## Requirements

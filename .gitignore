@@ -1,0 +1,20 @@
+# macOS files
+.DS_Store
+
+# IDE folders
+.idea/
+.vscode/
+
+# Python cache/compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment folders (if you use them)
+env/
+venv/
+
+# Build directories (if any)
+build/
+dist/
+*.egg-info/
